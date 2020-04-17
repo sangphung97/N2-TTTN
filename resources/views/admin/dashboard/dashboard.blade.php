@@ -7,7 +7,7 @@
     <div id="breadcrumb"> <a title="" class="tip-bottom"><i class="icon-home"></i> Loại tin</a></div>
   </div>
 
-<?php//   echo $user_login = Auth::user(); ?>
+<?php   ?>
 	
 </div>
 

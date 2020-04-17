@@ -32,7 +32,7 @@ class tinController extends Controller
     		'mota'=>'required',
     		'tinhot'=>'required',
     		'noidung'=>'required',
-            'hinhdaidien'=>'required',
+            'file'=>'required',
     	],[
     		'tieude.min'=>'Tiêu đề phải có ít nhất 3 kí tự.',
     		'tieude.required'=>'Tiêu đề chưa nhập.',
@@ -45,14 +45,15 @@ class tinController extends Controller
     	'tacgia.required'=>'Tên tác giả phải có ít nhất 3 kí tự.',
     	'mota.required'=>'Mô tả không được để trống.',
     	'tinhot.required'=>'Chọn tin hot hay bình thường.',
-    	'noidung.required'=>'Nội dung không được để trống.'
+    	'noidung.required'=>'Nội dung không được để trống.',
+    	'file.required'=>'Hình không được để trống.'
 
 
     	]);
 
     	$tin=new tin;
     	$tin->tieude=$request->tieude;
-        $tin->loaitinseo=str_slug($request->tieude);
+        $tin->tieudeseo=str_slug($request->tieudeseo);
     	$tin->id_loaitin=$request->loaitin;
     	$tin->tacgia=$request->tacgia;
     	$tin->mota=$request->mota;
@@ -128,7 +129,7 @@ public function postsua(Request $request,$id_tin){
         ]);
 
         $tin->tieude=$request->tieude;
-         $tin->loaitinseo=str_slug($request->tieude);
+         $tin->tieudeseo=str_slug($request->tieude);
         $tin->id_loaitin=$request->loaitin;
         $tin->tacgia=$request->tacgia;
         $tin->mota=$request->mota;

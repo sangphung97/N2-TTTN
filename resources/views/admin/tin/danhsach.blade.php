@@ -37,8 +37,9 @@
                   <th>ID tin</th>
                   <th>Tiêu đề</th>
                   <th>Số lần xem</th>
-                  <th>Loại tin</th>
                   <th>Nhóm tin</th>
+                  <th>Loại tin</th>
+                  
                   <th>Trạng thái</th>
                   <th>Tác giả</th>
                   <th>Thời gian</th>

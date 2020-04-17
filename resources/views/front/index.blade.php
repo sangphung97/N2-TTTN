@@ -293,7 +293,7 @@ $dstin=tin::all();
 							<div class="break"></div>
 		                </div>
 		                <!-- end item -->
-@endforeach
+
 					</div>
 	            </div>
         	</div>
