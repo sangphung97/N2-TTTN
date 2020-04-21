@@ -35,7 +35,10 @@
                   <th>Số lần xem</th>
                   <th>Nhóm tin</th>
                   <th>Loại tin</th>
+<<<<<<< HEAD
                   
+=======
+>>>>>>> 0b25bd0eb6a1b97c277ea33ffa79bbcc03a616d4
                   <th>Trạng thái</th>
                   <th>Tác giả</th>
                   <th>Thời gian</th>
