@@ -69,3 +69,68 @@ a {
     background-color: #555;
     /* Add a dark-grey background on hover */
 }
+
+.a-category {
+    padding: 10px!important;
+    background-color: springgreen!important;
+    display: inline-block!important;
+    width: 20%!important;
+    border-radius: 99px!important;
+    text-transform: uppercase!important;
+}
+
+
+/* The Modal (background) */
+
+.modal1 {
+    display: none;
+    /* Hidden by default */
+    position: unset!important;
+    /* Stay in place */
+    z-index: 1;
+    margin-top: 25px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.my-title {
+    top: -22px;
+    position: absolute;
+    z-index: 2;
+    background-color: #28a745;
+    border-radius: .25rem;
+    left: 50px;
+    padding: 5px 25px;
+}

@@ -33,14 +33,9 @@
                   <th>ID tin</th>
                   <th>Tiêu đề</th>
                   <th>Số lần xem</th>
-<<<<<<< HEAD
                   <th>Nhóm tin</th>
                   <th>Loại tin</th>
                   
-=======
-                  <th>Nhóm tin</th>   
-                  <th>Loại tin</th>               
->>>>>>> 4defe18779d54a2a5cf4564cab9202bdc6486663
                   <th>Trạng thái</th>
                   <th>Tác giả</th>
                   <th>Thời gian</th>

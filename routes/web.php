@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () {
+    return view('frontend.index');
+});*/
 
 Route::get('admin/login.html','UserController@getlogin')->name('login');
 Route::post('admin/login.html','UserController@postlogin');
@@ -89,6 +89,12 @@ Route::fallback(function () {
     return redirect('/');
 });
 
-Route::get('index.html','trangchuController@index');
+Route::get('/','trangchuController@index')->name('index');
 
-Route::get('detail/{id}/{tiedeseo}.html','trangchuController@detail');
+Route::get('detail/{id}/{tieudeseo}.html','trangchuController@detail')->name('tintuc');
+
+Route::get('loaitin/{id}/{loaitinseo}.html','trangchuController@category')->name('loaitin');
+
+Route::get('tacgia.html','trangchuController@author');
+
+Route::post('timkiem.html','trangchuController@timkiem')->name('timkiem');

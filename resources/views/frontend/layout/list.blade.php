@@ -17,37 +17,42 @@
         {{-- Nhom Tin --}}
         <div class="col-md-7" >
               <div class="col-md-8"> 
-                        @foreach($nhomtin as $nt)        
-                        @if($nt->trangthai==1)           
-                        <h2 style="border-bottom: 1px solid black;width: 80%">{{ $nt->ten_nhomtin }}</h2>
-                        @endif
-                        @foreach($inhomtin as $int)    
-                            @if($int->id_nhomtin == $nt->id_nhomtin)
-                            <div class="row">
-                                <div class="col-md-6" style="margin:15px 0">
-                                    
-                                        <a href="#">
-                                            <img src="{{ asset('upload/tintuc/'.$int->hinhdaidien) }}" alt="img" style="width: 100%" >
-                                        </a>
-                                </div>
-                                <div class="col-md-6" style="margin:15px 0">        
-                                        <h4>
-                                            <a href="#">{{ $int->tieude }}</a>
-                                        </h4>
-                                        <p>
-                                            <a href="#">{{ $int->mota }}</a>
-                                        </p>     
-                                </div>
-                            </div>
-                       
+                        @foreach($nhomtin as $nt)  
+                            
+                            @if($nt->trangthai==1)           
+                                <h2 style="border-bottom: 1px solid black;width: 80%">{{ $nt->ten_nhomtin }}</h2>
+                             @endif
+                            @foreach($inhomtin as $int) 
+                                @if($int->id_nhomtin == $nt->id_nhomtin)
+                                
+                                    <div class="row">
+                                        <div class="col-md-6" style="margin:15px 0">
+                                        
+                                            <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">
+                                                <img src="{{ asset('upload/tintuc/'.$int->hinhdaidien) }}"alt="img" style="width: 100%" >
+                                            </a>
+                                        
+                                        </div>
+                                        <div class="col-md-6" style="margin:15px 0">        
+                                                <h4>
+                                                    <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">{{ $int->tieude }}</a>
+                                                </h4>
+                                                <p>
+                                                    <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">{{ $int->mota }}</a>
+                                                </p>
+                                                
+                                        </div>
+                                    </div>
                         
-                        @endif
+                            
+                                @endif
+                            @endforeach
                         @endforeach
                    
-                        @endforeach
+                        
                         
             
-                 </div>
+                </div>
                 
             
         </div>
@@ -58,10 +63,11 @@
                 <h2 style="border-bottom:1px solid">
                     Tác Giả
                 </h2>
-                @foreach($tin as $tt)
+                @foreach($tacgia as $tg)
+                    
                 <div class="col-md-12">
                     <a href="#" class="tg">
-                        {{ $tt->tacgia }}
+                        {{ $tg->tacgia }}
                     </a>
                 </div>
                 @endforeach
@@ -70,25 +76,26 @@
                 <h2 style="border-bottom:1px solid">
                     Tin Hot
                 </h2>
-                @foreach($tin as $tt)
-                @if($tt->tinhot==1)
+                @foreach($tinhot as $tth)
+                
                 <div class="col-md-12" style="padding:0">
                     <div class="row">
                             <div class="col-md-6"style="padding:0;margin-bottom:20px">
                             <a href="#">
-                                <img src="{{ asset('upload/tintuc/'.$tt->hinhdaidien) }}" alt="tinhot" style="width:100%">
+                                <img src="{{ asset('upload/tintuc/'.$tth->hinhdaidien) }}" alt="tinhot" style="width:100%">
                             </a>
                         </div>
                         <div class="col-md-6">
                             <a href="#">
                                 
-                                {{ $tt->mota }}
+                                {{ $tth->mota }}
                             </a>
                         </div>
                     </div>
                 </div>
-                @endif
+                
                 @endforeach
+                
             </div>
         </div>
         {{-- End Tac Gia --}}

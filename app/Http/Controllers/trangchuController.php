@@ -18,8 +18,12 @@ class trangchuController extends Controller
         view()->share('tin',$tin);
         view()->share('nhomtin',$nhomtin);
         view()->share('loaitin',$loaitin);
-      
-        
+    //Index Page
+        $tinhot=tin::where('tin.tinhot','=','1')->take(4)->get( );
+        view()->share('tinhot',$tinhot);
+        $tacgia=tin::distinct()->get(['tacgia']);
+        view()->share('tacgia',$tacgia);
+  
     }
     function index(){
         /*
@@ -41,18 +45,45 @@ class trangchuController extends Controller
         $inhomtin=nhomtin::where('nhomtin.trangthai','=','1')
             ->join('loaitin','loaitin.id_nhomtin','=','nhomtin.id_nhomtin')
             ->join('tin','tin.id_loaitin','=','loaitin.id_loaitin')
-            ->select('tin.*','loaitin.id_nhomtin as id_nhomtin')
+            ->select('tin.*','loaitin.id_nhomtin as id_nhomtin')    
             ->get();
-
-           // dd($inhomtin);
-            
+            //dd($sl);
         return view('frontend.index',compact('inhomtin'));
     }
 
     function detail($id){
-        $tin=tin::find($id);
-        $tinhot=tin::where('tinhot',1)->take(4)->get();
-        $tinlienquan=tin::where('id_loaitin','$tin->id_loaitin')->take(5)->get();
-        return view ('frontend.detail',['tin'=>$tin,'tinhot'=>$tinhot,'tinlienquan'=>tinlienquan]);
+        $tindetail=tin::find($id);
+        $id1=$tindetail->loaitin->id_loaitin;
+        $tloai=loaitin::find($id1);
+      // dd($tloai);   
+        //Detail Page
+        $tinlienquan=tin::find($id);
+        $id2=$tinlienquan->id_loaitin;
+        $listloai=tin::where([['id_loaitin','=',$id2],['id_tin','<>',$id]])->take(4)->get();
+        return view ('frontend.detail',['tindetail'=>$tindetail,'detailtenloai'=>$tloai,'listloai'=>$listloai]);
+        
+    }
+    function category($id){
+        $loai=loaitin::find($id);
+        $tintuc=tin::where('id_loaitin',$id)->paginate(5); 
+       // dd($tindetail);   
+        return view('frontend.news_category',['loai'=>$loai,'tintuc'=>$tintuc]);
+    }
+
+    /*function author(){
+        $tg=tin::where('tin.trangthai','=','1')->get();
+        $tacgia=tin::distinct()->get(['tacgia']);
+        
+        
+        return view('frontend.author',['tg'=>$tg,'$tacgia'=>$tacgia]);
+    }
+    */
+    function timkiem(Request $request){
+        $tukhoa=$request->tukhoa;
+        $tintuc=tin::where('tieude','like',"%$tukhoa%")
+            ->orWhere('mota','like',"%$tukhoa%")
+            ->orWhere('noidung','like',"%$tukhoa%")->get();
+        return view('frontend.search',['tintuc'=>$tintuc,'tukhoa'=>$tukhoa]);
     }
 }
+ 

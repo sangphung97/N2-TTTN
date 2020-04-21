@@ -45,14 +45,15 @@ class tinController extends Controller
     	'tacgia.required'=>'Tên tác giả phải có ít nhất 3 kí tự.',
     	'mota.required'=>'Mô tả không được để trống.',
     	'tinhot.required'=>'Chọn tin hot hay bình thường.',
-    	'noidung.required'=>'Nội dung không được để trống.'
+    	'noidung.required'=>'Nội dung không được để trống.',
+    	'file.required'=>'Hình không được để trống.'
 
 
     	]);
 
     	$tin=new tin;
     	$tin->tieude=$request->tieude;
-        $tin->tieudeseo=str_slug($request->tieude);
+        $tin->tieudeseo=str_slug($request->tieudeseo);
     	$tin->id_loaitin=$request->loaitin;
     	$tin->tacgia=$request->tacgia;
     	$tin->mota=$request->mota;
@@ -80,20 +81,8 @@ class tinController extends Controller
 
     public function getxoa($id_tin){
          $tin=tin::find($id_tin);
-        // echo $tin->binhluan;
-        if($tin->binhluan==null)
-        { $tin->delete();
-
-         if (file_exists('upload/tintuc/'. $tin->hinhdaidien))
-            {
-                 unlink("upload/tintuc/".$tin->hinhdaidien);
-            }
-
-         return redirect('admin/tin/danhsach.html')->with('thongbao','Xóa thành công.');}
-         else
-         {
-             return redirect('admin/tin/danhsach.html')->with('thongbao','Xóa thất bại tồn tại bình luận.');
-         }
+         $tin->delete();
+         return redirect('admin/tin/danhsach.html')->with('thongbao','Xóa thành công.');
     }
 
 
