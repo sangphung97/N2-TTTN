@@ -17,8 +17,8 @@ class tinController extends Controller
     }
 
    public function getthem(){
-		$loaitin=loaitin::where('id_nhomtin',1)->get();
-     	$nhomtin=nhomtin::all();
+	
+     	$nhomtin=nhomtin::all();  $loaitin=loaitin::where('id_nhomtin',$nhomtin[0]->id_nhomtin)->get();
     	return view('admin.tin.them',['loaitin'=>$loaitin,'nhomtin'=>$nhomtin]);
     }
 
