@@ -88,3 +88,7 @@ Route::group(['prefix'=>'admin','middleware'=>'login'],function(){
 Route::fallback(function () {
     return redirect('/');
 });
+
+Route::get('index.html','trangchuController@index');
+
+Route::get('detail/{id}/{tiedeseo}.html','trangchuController@detail');
