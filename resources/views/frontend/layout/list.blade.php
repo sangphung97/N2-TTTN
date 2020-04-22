@@ -48,13 +48,7 @@
                                 @endif
                             @endforeach
                         @endforeach
-                   
-                        
-                        
-            
-                </div>
-                
-            
+                </div>         
         </div>
         {{-- End Nhom Tin --}}
         {{-- Tac Gia --}}
