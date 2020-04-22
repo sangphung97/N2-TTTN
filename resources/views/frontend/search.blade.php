@@ -40,16 +40,11 @@
                         <div class="col-md-9 row">
                             
                             <div class="col align-self-start">
-                                <a href="#">
+                                <a href="detail/{{$tt->id_tin}}/{{$tt->tieudeseo}}.html">
                                     <h5 style="font-size: 2rem">
                                         <b>{{ $tt->tieude }}</b>
                                     </h5>
-                                    <p>
-                                        {{ $tt->mota }}
-                                    </p>
-                                    <p>
-                                        {{ $tt->noidung }}
-                                    </p>
+                                  
                                 </a>
                             </div>
                             <div class="col align-self-end" style="flex-basis: auto">
