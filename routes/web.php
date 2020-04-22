@@ -85,9 +85,7 @@ Route::group(['prefix'=>'admin','middleware'=>'login'],function(){
 
 
 
-Route::fallback(function () {
-    return redirect('/');
-});
+
 
 Route::get('/','trangchuController@index')->name('index');
 
@@ -98,3 +96,6 @@ Route::get('loaitin/{id}/{loaitinseo}.html','trangchuController@category')->name
 Route::get('tacgia.html','trangchuController@author');
 
 Route::post('timkiem.html','trangchuController@timkiem')->name('timkiem');
+Route::fallback(function () {
+    return redirect('/');
+});

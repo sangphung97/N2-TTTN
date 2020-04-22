@@ -29,7 +29,7 @@
                 
                 <div class="col-md-12" style="margin-top:35px; padding-left:45px">
                     <p>
-                        {{$tindetail->noidung}}
+                       <?php echo $tindetail->noidung;?>
                     </p>
                 </div>
                 
