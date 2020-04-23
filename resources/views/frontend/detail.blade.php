@@ -21,7 +21,7 @@
                         <span>{{ $tindetail->ngaydangtin }} | </span>
                         By 
                         <a href="#"> {{ $tindetail->tacgia }}</a>
-                        <span> | Lượt Xem: {{ $tindetail->luotxem }} </span>
+                        <span> | Lượt Xem: {{ $tindetail->solanxem }} </span>
                     </p>
                     <img src="{{ asset('upload/tintuc/'.$tindetail->hinhdaidien) }}" alt="img" style="width:100%">
                     

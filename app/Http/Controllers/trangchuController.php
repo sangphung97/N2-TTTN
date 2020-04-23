@@ -49,11 +49,21 @@ class trangchuController extends Controller
             ->select('tin.*','loaitin.id_nhomtin as id_nhomtin')    
             ->get();
             //dd($sl);
+
+        $tin=tin::where('trangthai','1')
+        ->orderBy('solanxem','desc')
+        ->take(3)
+        ->get();
+
         return view('frontend.index',compact('inhomtin'));
     }
 
     function detail($id){
         $tindetail=tin::find($id);
+        if(is_null($tindetail))
+           return redirect("/");
+        $tindetail->solanxem+=1;
+        $tindetail->save();
         $id1=$tindetail->loaitin->id_loaitin;
         $tloai=loaitin::find($id1);
       // dd($tloai);   
