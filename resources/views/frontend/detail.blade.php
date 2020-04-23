@@ -34,7 +34,7 @@
                 </div>
                 
                 {{-- Comment --}}
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-12">
                         <h2 style="border-bottom:1px solid">
                             Comments
@@ -71,8 +71,67 @@
                             </div>
                         </div>
                     </div>
+                </div> --}}
+            {{-- End Comment --}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 style="border-bottom:1px solid">
+                            Comments
+                        </h2>
+                        @if(count($errors)>0)
+                        <div class="alert"> 
+                          @foreach($errors->all() as $err)
+                              {{$err}}<br>
+                              @endforeach
+                        </div>
+                      @endif
+            
+            
+            
+                      @if(session('thongbao'))
+                      <div class="alert">
+                        
+                        {{session('thongbao')}}
+                      </div>
+                      @endif
+                        <form action="{{ Route('binhluan',['id'=>$tindetail->id_tin]) }}" class="form-group" method="POST">
+                            @csrf
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}";>   
+                            <div class="col-md-12">                        
+                                <textarea name="noidung" id="noidung" cols="100%" rows="10" placeholder="Nhập Bình Luận" ></textarea>
+                                
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <label for="email" style="font-size:2rem">Email:</label>
+                                    <input type="email" id="email" placeholder="Nhập Email để gửi" style="width:80%" name="email">
+                                </div>
+                                <div class="col-md-5" style="padding-top:8px">
+                                    <button type="submit" class="btn btn-primary"> Gửi</button>
+                                </div>
+                            </div>                           
+                        </form>
+                    </div>
                 </div>
-        {{-- End Comment --}}
+                {{-- Show --}}
+                <div class="row"style="border-top:1px solid">
+                    @foreach($binhluan as $bl)
+                        @if($bl->trangthai==1)
+                            <div class="col-md-12">
+                                <div class="name" >
+                                    <h5 style="padding-top:30px">
+                                        Email: {{ $bl->email }}
+                                    </h5>
+                                    <p style="padding-left:28px;font-size:23px">
+                                        {{ $bl->noidung }}
+                                    </p>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+                {{-- End Show --}}
             </div>
             
             <div class="col-md-3">

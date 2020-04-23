@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\loaitin;
 use App\nhomtin;
 use App\tin;
+use App\binhluan;
 use Illuminate\Http\Request;
 
 class trangchuController extends Controller
@@ -60,7 +61,8 @@ class trangchuController extends Controller
         $tinlienquan=tin::find($id);
         $id2=$tinlienquan->id_loaitin;
         $listloai=tin::where([['id_loaitin','=',$id2],['id_tin','<>',$id]])->take(4)->get();
-        return view ('frontend.detail',['tindetail'=>$tindetail,'detailtenloai'=>$tloai,'listloai'=>$listloai]);
+        $binhluan=binhluan::all();
+        return view ('frontend.detail',['tindetail'=>$tindetail,'detailtenloai'=>$tloai,'listloai'=>$listloai,'binhluan'=>$binhluan]);
         
     }
     function category($id){
@@ -85,5 +87,7 @@ class trangchuController extends Controller
             ->orWhere('noidung','like',"%$tukhoa%")->get();
         return view('frontend.search',['tintuc'=>$tintuc,'tukhoa'=>$tukhoa]);
     }
+   
+    
 }
  

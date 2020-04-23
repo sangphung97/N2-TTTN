@@ -91,11 +91,14 @@ Route::get('/','trangchuController@index')->name('index');
 
 Route::get('detail/{id}/{tieudeseo}.html','trangchuController@detail')->name('tintuc');
 
+
 Route::get('loaitin/{id}/{loaitinseo}.html','trangchuController@category')->name('loaitin');
 
 Route::get('tacgia.html','trangchuController@author');
 
 Route::post('timkiem.html','trangchuController@timkiem')->name('timkiem');
+
+Route::post('comment/{id}','commentController@postComment')->name('binhluan');
 Route::fallback(function () {
     return redirect('/');
 });
