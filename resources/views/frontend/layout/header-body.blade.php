@@ -10,27 +10,18 @@
   
     <!-- The slideshow -->
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{{asset ('frontend_asset/images/chicago.jpg') }}" alt="Los Angeles">
+      <?php foreach ($tin as $key => $value){  ?>
+
+  <div class="carousel-item @if($key==0)  active @endif ">
+        <img src="upload/tintuc/{{$value->hinhdaidien}}" alt="Los Angeles" style="width: 600px; height: 400px;">
         <div class="carousel-caption">
-            <h3>Los Angeles</h3>
-            <p>We had such a great time in LA!</p>
+          
+            <p>{{$value->tieude}}</p>
           </div>
       </div>
-      <div class="carousel-item">
-        <img src="{{asset ('frontend_asset/images/ny.jpg') }}" alt="Chicago">
-        <div class="carousel-caption">
-            <h3>Los Angeles</h3>
-            <p>We had such a great time in LA!</p>
-          </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{{asset ('frontend_asset/images/la.jpg') }}" alt="New York">
-        <div class="carousel-caption">
-            <h3>Los Angeles</h3>
-            <p>We had such a great time in LA!</p>
-          </div>
-      </div>
+       
+      
+<?php } ?>
     </div>
   
     <!-- Left and right controls -->

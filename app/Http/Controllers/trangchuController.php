@@ -48,11 +48,21 @@ class trangchuController extends Controller
             ->select('tin.*','loaitin.id_nhomtin as id_nhomtin')    
             ->get();
             //dd($sl);
+
+        $tin=tin::where('trangthai','1')
+        ->orderBy('solanxem','desc')
+        ->take(3)
+        ->get();
+
         return view('frontend.index',compact('inhomtin'));
     }
 
     function detail($id){
         $tindetail=tin::find($id);
+        if(is_null($tindetail))
+           return redirect("/");
+$tindetail->solanxem+=1;
+$tindetail->save();
         $id1=$tindetail->loaitin->id_loaitin;
         $tloai=loaitin::find($id1);
       // dd($tloai);   
@@ -60,7 +70,7 @@ class trangchuController extends Controller
         $tinlienquan=tin::find($id);
         $id2=$tinlienquan->id_loaitin;
         $listloai=tin::where([['id_loaitin','=',$id2],['id_tin','<>',$id]])->take(4)->get();
-        return view ('frontend.detail',['tindetail'=>$tindetail,'detailtenloai'=>$tloai,'listloai'=>$listloai]);
+       return view ('frontend.detail',['tindetail'=>$tindetail,'detailtenloai'=>$tloai,'listloai'=>$listloai]);
         
     }
     function category($id){
