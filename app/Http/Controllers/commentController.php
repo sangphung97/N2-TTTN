@@ -19,9 +19,12 @@ class commentController extends Controller
         $comment->id_tin=$idtintuc;
         $comment->email=$request->email;
         $this->validate($request,[
-            'email'=>'required'
+            'email'=>'required|email',
+            'noidung'=>'required'
         ],[
-            'email.required'=>'Chưa nhập Email'
+            'email.required'=>'Chưa nhập Email.',
+            'email.email'=>'Email không hợp lệ.',
+            'noidung.required'=>'Không được để trống.'
         ]);  
 
         $comment->save();
