@@ -2,8 +2,8 @@
 @section('title','Loại Tin')
 @include('frontend.layout.navigation')
 @section('content')
-    <div class="box"style="background-color: #edeff2">
-        <div class="container-fluid" style="padding:2% 5%" >
+    <div class="box" style="background-color: #edeff2;margin-top:20px;">
+        <div class="container-fluid" style="padding:2% 5%;" >
             <div class="row justify-content-between" >
                 <div class="col-4">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, impedit sunt quas eos esse aut adipisci vero praesentium, qui reprehenderit ipsam incidunt obcaecati natus voluptatibus ratione aliquam. Ex, sint cum.

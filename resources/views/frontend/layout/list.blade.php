@@ -1,4 +1,6 @@
 
+    
+
 @section('content')
 <div class="container-fluid" style="padding:30px 5%">
     
@@ -16,40 +18,55 @@
         {{--End  Place for Advertisment --}}
         {{-- Nhom Tin --}}
         <div class="col-md-7" >
-              <div class="col-md-8"> 
-                        @foreach($nhomtin as $nt)  
-                            
-                            @if($nt->trangthai==1)           
-                                <h2 style="border-bottom: 1px solid black;width: 80%">{{ $nt->ten_nhomtin }}</h2>
-                             @endif
-                            @foreach($inhomtin as $int) 
-                                @if($int->id_nhomtin == $nt->id_nhomtin)
-                                
-                                    <div class="row">
-                                        <div class="col-md-6" style="margin:15px 0">
-                                        
-                                            <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">
-                                                <img src="{{ asset('upload/tintuc/'.$int->hinhdaidien) }}"alt="img" style="width: 100%" >
-                                            </a>
-                                        
-                                        </div>
-                                        <div class="col-md-6" style="margin:15px 0">        
-                                                <h4>
-                                                    <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">{{ $int->tieude }}</a>
-                                                </h4>
-                                                <p>
-                                                    <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">{{ $int->mota }}</a>
-                                                </p>
-                                                
-                                        </div>
-                                    </div>
-                        
-                            
+              <div class="col-md-12"> 
+                        @foreach($nhomtin as $nt)                           
+                                @if($nt->trangthai==1)           
+                                    <h2 style="border-bottom: 1px solid black;width: 80%">{{ $nt->ten_nhomtin }}</h2>
                                 @endif
-                            @endforeach
+                            
+                                @php
+                                $lt1=$nt->loaitin->where('trangthai','=','1')->take(5);
+                                
+                                @endphp
+                            @foreach($lt1 as $lt) 
+                            
+                                @php
+                                    $int1=$lt->tin->where('trangthai','=','1')->sortByDesc('ngaydangtin')->take(1);
+                                
+                                @endphp
+                             
+                                @foreach($int1 as $int)                                           
+                                            <div class="row">
+                                                <div class="col-md-6" style="margin:15px 0">
+                                                
+                                                    <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">
+                                                        <img src="{{ asset('upload/tintuc/'.$int->hinhdaidien) }}"alt="img" style="width: 100%" >
+                                                    </a>
+                                                
+                                                </div>
+                                                <div class="col-md-6" style="margin:15px 0">        
+                                                        <h4>
+                                                            <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">{{ $int->tieude }}</a>
+                                                        </h4>
+                                                        <p>
+                                                            <a href="detail/{{ $int->id_tin }}/{{ $int->tieudeseo }}.html">{{ $int->mota }}</a>
+                                                        </p>
+                                                        <p>
+                                                            <a href="{{ Route('loaitin',['id'=>$lt->id_loaitin,'loaitinseo'=>$lt->loaitinseo]) }}" style="border: 1px solid;padding: 4px 18px; border-radius: 20px;background-color: gold;">
+                                                                {{ $lt->ten_loaitin }}
+                                                            </a>
+                                                        </p>
+                                                </div>                                           
+                                            </div>                                   
+                                    @endforeach
+                                @endforeach
                         @endforeach
-                </div>         
+                        
+                       
+                </div>   
+                {{ $inhomtin->links() }}
         </div>
+        
         {{-- End Nhom Tin --}}
         {{-- Tac Gia --}}
         <div class="col-md-3" style="padding:0">

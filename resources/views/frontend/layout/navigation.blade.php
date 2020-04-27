@@ -1,6 +1,6 @@
 @section('nav')
 
-      <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
         <!-- Brand -->
         <!-- Links -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -12,7 +12,10 @@
             <a href="{{ Route('index') }}" class="navbar-brand"><i class="fas fa-home" style="color:white"></i></a>
           </li>
           <!-- Dropdown -->
-          @foreach($nhomtin as $nt)
+        <?php
+          $nt1=$nhomtin->where('trangthai','1')->take(7);
+        ?>
+          @foreach($nt1 as $nt)
             @if($nt->trangthai==1)
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:white!important">

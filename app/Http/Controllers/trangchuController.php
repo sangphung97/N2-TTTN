@@ -14,7 +14,7 @@ class trangchuController extends Controller
     function __construct()
     {
         $tin=tin::all();
-        $nhomtin=nhomtin::all();
+        $nhomtin=nhomtin::where('trangthai','=','1')->take(13)->get();
         $loaitin=loaitin::all();
         view()->share('tin',$tin);
         view()->share('nhomtin',$nhomtin);
@@ -42,21 +42,36 @@ class trangchuController extends Controller
                 $a[0][1];
 
         */
-
+        
+        
         $inhomtin=nhomtin::where('nhomtin.trangthai','=','1')
             ->join('loaitin','loaitin.id_nhomtin','=','nhomtin.id_nhomtin')
             ->join('tin','tin.id_loaitin','=','loaitin.id_loaitin')
-            ->select('tin.*','loaitin.id_nhomtin as id_nhomtin')
+            ->select('tin.*','loaitin.ten_loaitin','loaitin.id_nhomtin as id_nhomtin')
+            ->paginate(9);
+                   
+            //->get();
+        
+            
+       
+           // dd($inhomtin);
+        // foreach($inhomtin as $tin1)
+        // {
+        //     $tin1=tin::where('trangthai','1')->orWhere('id_tin','=',$inhomtin)
+            
+        //     ->take(2)->get();
+        // }
+      
                
-            ->get();
-            //dd($sl);
+      
+        // $name_nhomtin=nhomtin::where('trangthai','1')->get()
 
         $tin=tin::where('trangthai','1')
         ->orderBy('solanxem','desc')
         ->take(3)
         ->get();
 
-        return view('frontend.index',compact('inhomtin'));
+        return view('frontend.index',['inhomtin'=>$inhomtin]);
     }
 
     function detail($id){
