@@ -46,7 +46,8 @@ class trangchuController extends Controller
         $inhomtin=nhomtin::where('nhomtin.trangthai','=','1')
             ->join('loaitin','loaitin.id_nhomtin','=','nhomtin.id_nhomtin')
             ->join('tin','tin.id_loaitin','=','loaitin.id_loaitin')
-            ->select('tin.*','loaitin.id_nhomtin as id_nhomtin')    
+            ->select('tin.*','loaitin.id_nhomtin as id_nhomtin')
+               
             ->get();
             //dd($sl);
 

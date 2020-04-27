@@ -53,41 +53,38 @@
         {{-- End Nhom Tin --}}
         {{-- Tac Gia --}}
         <div class="col-md-3" style="padding:0">
-            <div class="row">
+            <div class="row" style="justify-content:center">
                 <h2 style="border-bottom:1px solid">
                     Tác Giả
                 </h2>
                 @foreach($tacgia as $tg)
                     
-                <div class="col-md-12">
+                <div class="col-md-12" style="justify-content: center;align-items: center;display: flex;">
                     <a href="#" class="tg">
                         {{ $tg->tacgia }}
                     </a>
                 </div>
                 @endforeach
             </div>
-            <div class="row">
-                <h2 style="border-bottom:1px solid">
-                    Tin Hot
-                </h2>
+            <div class="row"style="justify-content:center" >
+                <div class="col-md-12" style="justify-content: center;align-items: center;display: flex;">
+                    <h2 style="border-bottom:1px solid">
+                        Tin Hot
+                    </h2>
+                </div>
                 @foreach($tinhot as $tth)
                 
-                <div class="col-md-12" style="padding:0">
-                    <div class="row">
-                            <div class="col-md-6"style="padding:0;margin-bottom:20px">
-                            <a href="#">
+                
+                    <div class="row"style="margin:0!important;justifuy-content:center;width:80%">
+                            <div class="col-xs-6"style="padding:0;margin-bottom:20px">
+                            <a href="#" style="display: block;">
                                 <img src="{{ asset('upload/tintuc/'.$tth->hinhdaidien) }}" alt="tinhot" style="width:100%">
+                        
+                                <p>{{ $tth->mota }}</p>
                             </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#">
-                                
-                                {{ $tth->mota }}
-                            </a>
+                            
                         </div>
                     </div>
-                </div>
-                
                 @endforeach
                 
             </div>

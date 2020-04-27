@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="{{ asset('frontend_asset/css/style.css') }}">  
     <link rel="stylesheet" href="{{ asset('frontend_asset/css/all.min.css')}}">
     <link rel="icon" href="{{ asset('frontend_asset/images/favicon.ico') }}">
+    <base href="{{ asset('') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
 </head>
-@yield('nav')
+
 <body>
+    
+    @yield('nav')
     <button onclick="topFunction()" id="myBtn" title="Go to top">
         <i class="fas fa-chevron-up" style="font-size:30px"></i>
     </button>
@@ -29,9 +32,9 @@
                     <i class="fa fa-copyright" aria-hidden="true"></i>
                     <span>Thực Tập Tốt Nghiệp Nhóm 2</span>
                 </div>
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcongdongvnexpress%2F&tabs=timeline&width=500&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                </div>
+                </div> --}}
                 
             </div>
         </div>
@@ -42,7 +45,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="{{ asset('frontend_asset/js/custom.js') }}"> </script>
 
-
+    
 </body>
 
 </html>

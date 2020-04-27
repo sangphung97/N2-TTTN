@@ -79,7 +79,7 @@
                             Comments
                         </h2>
                         @if(count($errors)>0)
-                        <div class="alert"> 
+                        <div class="alert" style="color:red"> 
                           @foreach($errors->all() as $err)
                               {{$err}}<br>
                               @endforeach
@@ -89,7 +89,7 @@
             
             
                       @if(session('thongbao'))
-                      <div class="alert">
+                      <div class="alert" style="color:red">
                         
                         {{session('thongbao')}}
                       </div>
@@ -98,7 +98,7 @@
                             @csrf
                             <input type="hidden" name="_token" value="{{ csrf_token() }}";>   
                             <div class="col-md-12">                        
-                                <textarea name="noidung" id="noidung" cols="100%" rows="10" placeholder="Nhập Bình Luận" ></textarea>
+                                <textarea name="noidung" id="noidung" cols="100%" rows="6" placeholder="Nhập Bình Luận" ></textarea>
                                 
 
                             </div>
