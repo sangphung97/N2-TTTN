@@ -102,3 +102,8 @@ Route::post('comment/{id}','commentController@postComment')->name('binhluan');
 Route::fallback(function () {
     return redirect('/');
 });
+
+
+Route::get('login','Auth\LoginController@login');
+Route::get('login/{provider}',['as'=>'provider_login','uses'=>'Auth\LoginController@redirectToProvider']);
+Route::get('login/{provider}/callback',['as'=>'provider_login_callback','uses'=>'Auth\LoginController@handleProviderCallback']);
