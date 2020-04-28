@@ -176,7 +176,8 @@
                         <div class="row" style="justify-content:center;margin-top:30px">
                             <div class="col-md-3">
                                     <a href="#" style="text-align:center;display:block">
-                                        <i class="fab fa-facebook" style="font-size:35px"></i>
+                                        {{-- <i class="fab fa-facebook" style="font-size:35px"></i> --}}
+                                        {{-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ftinhot.ga%2Fpublic%2Findex.html&layout=button&size=large&width=87&height=28&appId" width="87" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> --}}
                                     </a>
                             </div>
                             <div class="col-md-3">

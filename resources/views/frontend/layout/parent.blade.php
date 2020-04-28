@@ -29,12 +29,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <i class="fa fa-copyright" aria-hidden="true"></i>
-                    <span>Thực Tập Tốt Nghiệp Nhóm 2</span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <i class="fa fa-copyright" aria-hidden="true"></i>
+                            <span>Thực Tập Tốt Nghiệp Nhóm 2</span>
+                        </div>
+                        <div class="col-md-12">
+                            <span>Theo dõi <a href="{{ Route('index') }}" style="font-size:25px">tinhot.ga</a> trên:</span>
+                            <p style="font-size:25px">
+                                <a href="#"><i class="fab fa-facebook" style="margin-right:15px"></i></a>
+                                <a href="#"><i class="fab fa-instagram" style="margin-right:15px"></i></a>
+                                <a href="#"><i class="fab fa-youtube" style="margin-right:15px"></i></a>
+    
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                {{-- <div class="col-md-6">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcongdongvnexpress%2F&tabs=timeline&width=500&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                </div> --}}
+                <div class="col-md-6">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcongdongvnexpress%2F&tabs=timeline&width=400px&height=200px&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="400px" height="200px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                </div>
                 
             </div>
         </div>

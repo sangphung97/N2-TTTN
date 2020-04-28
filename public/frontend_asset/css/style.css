@@ -6,6 +6,10 @@ a {
     color: black!important;
 }
 
+a {
+    cursor: pointer!important;
+}
+
 .navbar {
     justify-content: space-between!important;
 }

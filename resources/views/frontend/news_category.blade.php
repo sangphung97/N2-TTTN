@@ -52,7 +52,7 @@
                                         {{ $tt->mota }}
                                     </p>
                                     <p>
-                                        {{ $tt->noidung }}
+                                        {{ substr($tt->noidung,0,500) }}...
                                     </p>
                                 </a>
                             </div>

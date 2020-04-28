@@ -97,7 +97,7 @@
                             <a href="#" style="display: block;">
                                 <img src="{{ asset('upload/tintuc/'.$tth->hinhdaidien) }}" alt="tinhot" style="width:100%">
                         
-                                <p>{{ $tth->mota }}</p>
+                                <p>{{ substr($tth->mota,0,500) }}...</p>
                             </a>
                             
                         </div>

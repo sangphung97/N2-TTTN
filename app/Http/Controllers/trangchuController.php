@@ -20,6 +20,7 @@ class trangchuController extends Controller
         view()->share('nhomtin',$nhomtin);
         view()->share('loaitin',$loaitin);
     //Index Page
+    
         $tinhot=tin::where('tin.tinhot','=','1')->take(4)->get( );
         view()->share('tinhot',$tinhot);
         $tacgia=tin::distinct()->get(['tacgia']);
@@ -109,8 +110,9 @@ class trangchuController extends Controller
     function timkiem(Request $request){
         $tukhoa=$request->tukhoa;
         $tintuc=tin::where('tieude','like',"%$tukhoa%")
-            ->orWhere('mota','like',"%$tukhoa%")
-            ->orWhere('noidung','like',"%$tukhoa%")->get();
+            //->orWhere('mota','like',"%$tukhoa%")
+            //->orWhere('noidung','like',"%$tukhoa%")
+            ->get();
         return view('frontend.search',['tintuc'=>$tintuc,'tukhoa'=>$tukhoa]);
     }
    
