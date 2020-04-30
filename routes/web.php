@@ -104,6 +104,6 @@ Route::fallback(function () {
 });
 
 
-Route::get('login','Auth\LoginController@login');
+Route::get('dangnhap','Auth\LoginController@dangnhap');
 Route::get('login/{provider}',['as'=>'provider_login','uses'=>'Auth\LoginController@redirectToProvider']);
 Route::get('login/{provider}/callback',['as'=>'provider_login_callback','uses'=>'Auth\LoginController@handleProviderCallback']);
