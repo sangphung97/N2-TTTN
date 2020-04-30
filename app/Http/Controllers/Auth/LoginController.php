@@ -38,10 +38,10 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    function login()
+    function dangnhap()
     {
 
-            return view('layout.login');
+            return view('layout.dangnhap');
     }
     public function redirectToProvider($providers)
     {
