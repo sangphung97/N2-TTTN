@@ -30,7 +30,21 @@
               </li>
             @endif
         @endforeach
+        <li class="nav-item">
+            <a class="nav-link drop-toggle" href="{{URL::to('/dangnhap')}}" id="navbardrop" style="color:white!important">Đăng nhập</a>
+            </li>
+            <li>
+                    <a class="nav-link drop-toggle" href="{{URL::to('/dangnhap')}}" id="navbardrop" style="color:white!important">Đăng xuất</a>
+                    </li>
+                    
+
         </ul>
+         
+            
+                    
+                
+          
+
       </div>
       </nav> 
 

@@ -38,7 +38,7 @@
                             <span>Theo dõi <a href="{{ Route('index') }}" style="font-size:25px">tinhot.ga</a> trên:</span>
                             <p style="font-size:25px">
                                 <li>
-                                    <a href="{{URL::to('/dangnhap')}}">Đăng nhập</a>
+                                    
                                 </li>
                                 <a href="#"><i class="fab fa-facebook" style="margin-right:15px"></i></a>
                                 <a href="#"><i class="fab fa-instagram" style="margin-right:15px"></i></a>

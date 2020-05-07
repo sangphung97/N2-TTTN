@@ -41,7 +41,7 @@ class LoginController extends Controller
     function dangnhap()
     {
 
-            return view('layout.dangnhap');
+            return view('frontend.dangnhap');
     }
     public function redirectToProvider($providers)
     {
