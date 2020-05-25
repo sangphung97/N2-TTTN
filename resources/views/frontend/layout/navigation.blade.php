@@ -17,17 +17,21 @@
         ?>
           @foreach($nt1 as $nt)
             @if($nt->trangthai==1)
+            
               <li class="nav-item dropdown">
+                
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:white!important">
                   {{ $nt->ten_nhomtin }}
                 </a>
-                  @foreach($nt->loaitin as $tt)
+                
                   <div class="dropdown-menu">
+                    @foreach($nt->loaitin as $tt)
                     <a class="dropdown-item" href="{{ Route('loaitin',['id'=>$tt->id_loaitin,'loaitinseo'=>$tt->loaitinseo]) }}" >{{  $tt->ten_loaitin }}</a>
-                    
+                    @endforeach
                   </div>
-                  @endforeach
+                 
               </li>
+              
             @endif
         @endforeach
         <li class="nav-item">

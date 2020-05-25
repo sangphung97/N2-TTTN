@@ -45,16 +45,16 @@ class trangchuController extends Controller
         */
         
         
-        $inhomtin=nhomtin::where('nhomtin.trangthai','=','1')
-            ->join('loaitin','loaitin.id_nhomtin','=','nhomtin.id_nhomtin')
-            ->join('tin','tin.id_loaitin','=','loaitin.id_loaitin')
-            ->select('tin.*','loaitin.ten_loaitin','loaitin.id_nhomtin as id_nhomtin')
-            ->paginate(9);
+        // $inhomtin=nhomtin::where('nhomtin.trangthai','=','1')
+        //     ->join('loaitin','loaitin.id_nhomtin','=','nhomtin.id_nhomtin')
+        //     ->join('tin','tin.id_loaitin','=','loaitin.id_loaitin')
+        //     ->select('tin.*','loaitin.ten_loaitin','loaitin.id_nhomtin as id_nhomtin')
+        //     ->paginate(1);
                    
             //->get();
         
-            
-       
+            $inhomtin=nhomtin::where('nhomtin.trangthai','=',1)->get();
+           
            // dd($inhomtin);
         // foreach($inhomtin as $tin1)
         // {
@@ -72,7 +72,7 @@ class trangchuController extends Controller
         ->take(3)
         ->get();
 
-        return view('frontend.index',['inhomtin'=>$inhomtin]);
+        return view('frontend.index',['inhomtin'=>$inhomtin,'tin'=>$tin]);
     }
 
     function detail($id){

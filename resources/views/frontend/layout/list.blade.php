@@ -25,12 +25,13 @@
                                 @endif
                             
                                 @php
-                                $lt1=$nt->loaitin->where('trangthai','=','1')->take(5);
-                                
+                                //chỉ lấy ra 5 loại tin khác nhau trong 1 nhóm 
+                                    $lt1=$nt->loaitin->where('trangthai','=','1')->take(7);
                                 @endphp
                             @foreach($lt1 as $lt) 
                             
                                 @php
+                                //mỗi loại tin chỉ lấy ra 1 tin mới nhất dựa vào thơi gian đăng tin    
                                     $int1=$lt->tin->where('trangthai','=','1')->sortByDesc('ngaydangtin')->take(1);
                                 
                                 @endphp
@@ -64,7 +65,8 @@
                         
                        
                 </div>   
-                {{ $inhomtin->links() }}
+                
+                
         </div>
         
         {{-- End Nhom Tin --}}

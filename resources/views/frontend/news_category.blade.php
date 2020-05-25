@@ -69,12 +69,17 @@
                                     </span>
                             </div>
                         </div>  
+                        
                     </div>
                     
                 
             
             </div>
             @endforeach
+            <div class="col-md-12">
+                {{  $tintuc->links()   }}
+            </div>
+            
         </div>
     </div>
 
