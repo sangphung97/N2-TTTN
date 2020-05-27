@@ -21,7 +21,7 @@ class trangchuController extends Controller
         view()->share('loaitin',$loaitin);
     //Index Page
     
-        $tinhot=tin::where('tin.tinhot','=','1')->take(4)->get( );
+        $tinhot=tin::where('tin.tinhot','=','1')->inRandomOrder()->take(4)->get();
         view()->share('tinhot',$tinhot);
         $tacgia=tin::distinct()->get(['tacgia']);
         view()->share('tacgia',$tacgia);
@@ -41,10 +41,7 @@ class trangchuController extends Controller
                 ->where('follows.follower_id', '=', 3)
                 ->get();
                 $a[0][1];
-
         */
-        
-        
         // $inhomtin=nhomtin::where('nhomtin.trangthai','=','1')
         //     ->join('loaitin','loaitin.id_nhomtin','=','nhomtin.id_nhomtin')
         //     ->join('tin','tin.id_loaitin','=','loaitin.id_loaitin')
@@ -53,8 +50,7 @@ class trangchuController extends Controller
                    
             //->get();
         
-            $inhomtin=nhomtin::where('nhomtin.trangthai','=',1)->get();
-           
+            $inhomtin=nhomtin::where('nhomtin.trangthai','=',1)->get();  
            // dd($inhomtin);
         // foreach($inhomtin as $tin1)
         // {
@@ -62,9 +58,6 @@ class trangchuController extends Controller
             
         //     ->take(2)->get();
         // }
-      
-               
-      
         // $name_nhomtin=nhomtin::where('trangthai','1')->get()
 
         $tin=tin::where('trangthai','1')
@@ -88,7 +81,8 @@ class trangchuController extends Controller
         $tinlienquan=tin::find($id);
         $id2=$tinlienquan->id_loaitin;
         $listloai=tin::where([['id_loaitin','=',$id2],['id_tin','<>',$id]])->take(4)->get();
-        $binhluan=binhluan::all();
+        $binhluan=binhluan::where('binhluan.trangthai','=','1')->join('tin','tin.id_tin','=','binhluan.id_tin')->select('binhluan.noidung','binhluan.email')->get();
+        //dd($binhluan);
         return view ('frontend.detail',['tindetail'=>$tindetail,'detailtenloai'=>$tloai,'listloai'=>$listloai,'binhluan'=>$binhluan]);
         
     }

@@ -96,7 +96,7 @@
                 
                     <div class="row"style="margin:0!important;justifuy-content:center;width:80%">
                             <div class="col-xs-6"style="padding:0;margin-bottom:20px">
-                            <a href="#" style="display: block;">
+                            <a href="detail/{{ $tth->id_tin }}/{{ $tth->tieudeseo }}.html" style="display: block;">
                                 <img src="{{ asset('upload/tintuc/'.$tth->hinhdaidien) }}" alt="tinhot" style="width:100%">
                         
                                 <p>{{ substr($tth->mota,0,500) }}...</p>

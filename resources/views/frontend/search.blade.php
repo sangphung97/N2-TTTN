@@ -15,7 +15,12 @@
         </div>
     </div>
     {{-- Main --}}
-    
+    <?php
+    function doimau($str,$tukhoa)
+    {
+        return str_replace($tukhoa,"<span style='color:red;'>$tukhoa</span>",$str);
+    }
+    ?>
     <div class="container-fluid"style="margin:35px auto;max-width:1575px">
         <div class="row">
             <div class="col-md-6">
@@ -42,7 +47,7 @@
                             <div class="col align-self-start">
                                 <a href="detail/{{$tt->id_tin}}/{{$tt->tieudeseo}}.html">
                                     <h5 style="font-size: 2rem">
-                                        <b>{{ $tt->tieude }}</b>
+                                        <b>{!! doimau($tt->tieude,$tukhoa) !!}</b>
                                     </h5>
                                   
                                 </a>
@@ -67,6 +72,7 @@
             </div>
             @endforeach
         </div>
+  
     </div>
 
     {{-- End Main --}}

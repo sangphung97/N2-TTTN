@@ -116,20 +116,23 @@
                 </div>
                 {{-- Show --}}
                 <div class="row"style="border-top:1px solid">
-                    @foreach($binhluan as $bl)
-                        @if($bl->trangthai==1)
-                            <div class="col-md-12">
-                                <div class="name" >
-                                    <h5 style="padding-top:30px">
-                                        Email: {{ $bl->email }}
-                                    </h5>
-                                    <p style="padding-left:28px;font-size:23px">
-                                        {{ $bl->noidung }}
-                                    </p>
+                    
+
+                        @foreach($binhluan as $bl)
+                           
+                                <div class="col-md-12">
+                                    <div class="name" >
+                                        <h5 style="padding-top:30px">
+                                            Email: {{ $bl->email }}
+                                        </h5>
+                                        <p style="padding-left:28px;font-size:23px">
+                                            {{ $bl->noidung }}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endif
-                    @endforeach
+                            
+                        @endforeach
+                   
                 </div>
                 {{-- End Show --}}
             </div>
